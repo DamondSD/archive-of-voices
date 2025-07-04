@@ -1,0 +1,228 @@
+<div class="av-tabs">
+ <!-- <p style="color: lime;">Debug: isGM = {{isGM}}</p>
+  <p style="color: red;">TEMPLATE LOADED — {{isGM}}</p>
+-->
+
+  {{#if isGM}}
+
+  <!-- TAB HEADER (GM) -->
+  <div class="tab-header">
+    <button data-tab="chat" class="tab active">💬 Chat</button>
+    <button data-tab="new-npc" class="tab">🧍 New NPC</button>
+    <button data-tab="pro" class="tab">💎 Pro Features</button>
+  </div>
+
+  <!-- ALL TAB CONTENTS (GM) -->
+  <div class="tab-content" id="tab-chat">
+    <form class="av-form">
+      <label for="prompt">Ask The Archive of Voices</label>
+      <textarea id="prompt" name="prompt" placeholder="Ask anything..."></textarea>
+
+      <label for="npc-select">Select NPC</label>
+      <select id="npc-select">
+        <option value="">None</option>
+      </select>
+
+      <button type="button" id="av-send">Send</button>
+      <div id="av-output" class="av-response"></div>
+    </form>
+  </div>
+
+  <!-- NEW NPC Creation -->
+  <div class="tab-content hidden" id="tab-new-npc">
+    <p style="display: block; color: inherit;"><strong>Create a New NPC</strong></p>
+    <small style="display: block; margin-bottom: 10px; color: #aaa; font-style: italic;">
+    Tip: Leave all fields blank to generate a fully random, unnamed NPC based on the rule set you are using.
+</small>
+
+    <form id="npc-generator-form">
+      <label for="npc-name">Name</label>
+      <input type="text" id="npc-name" name="npc-name" placeholder="e.g. Thalor" />
+
+      <label for="npc-race">Race</label>
+      <select id="npc-race" name="npc-race">
+        <option value="">Select a race</option>
+
+        <!-- Core PHB -->
+        <option value="Dwarf">Dwarf</option>
+        <option value="Elf">Elf</option>
+        <option value="Halfling">Halfling</option>
+        <option value="Human">Human</option>
+        <option value="Dragonborn">Dragonborn</option>
+        <option value="Gnome">Gnome</option>
+        <option value="Half-Elf">Half-Elf</option>
+        <option value="Half-Orc">Half-Orc</option>
+        <option value="Tiefling">Tiefling</option>
+
+        <!-- Expanded Races -->
+        <option value="Aasimar">Aasimar</option>
+        <option value="Genasi">Genasi</option>
+        <option value="Goliath">Goliath</option>
+        <option value="Firbolg">Firbolg</option>
+        <option value="Tabaxi">Tabaxi</option>
+        <option value="Triton">Triton</option>
+        <option value="Goblin">Goblin</option>
+        <option value="Hobgoblin">Hobgoblin</option>
+        <option value="Orc">Orc</option>
+        <option value="Kenku">Kenku</option>
+        <option value="Lizardfolk">Lizardfolk</option>
+        <option value="Tortle">Tortle</option>
+        <option value="Yuan-ti">Yuan-ti</option>
+        <option value="Warforged">Warforged</option>
+        <option value="Changeling">Changeling</option>
+        <option value="Kalashtar">Kalashtar</option>
+        <option value="Shifter">Shifter</option>
+      </select>
+
+
+      <label for="npc-class">Class</label>
+      <select id="npc-class" name="npc-class">
+        <option value="">Select a class</option>
+        <option value="Barbarian">Barbarian</option>
+        <option value="Bard">Bard</option>
+        <option value="Cleric">Cleric</option>
+        <option value="Druid">Druid</option>
+        <option value="Fighter">Fighter</option>
+        <option value="Monk">Monk</option>
+        <option value="Paladin">Paladin</option>
+        <option value="Ranger">Ranger</option>
+        <option value="Rogue">Rogue</option>
+        <option value="Sorcerer">Sorcerer</option>
+        <option value="Warlock">Warlock</option>
+        <option value="Wizard">Wizard</option>
+        <option value="Artificer">Artificer</option>
+      </select>
+
+
+      <label for="npc-gender">Gender</label>
+      <select id="npc-gender" name="npc-gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+      
+      <label for="npc-traits">Personality Traits</label>
+<small style="display: block; margin-bottom: 6px; color: #aaa; font-style: italic;">
+  Select as many as you need
+</small>
+
+<!-- Intellectual -->
+<fieldset class="trait-group">
+  <legend>🧠 Intellectual / Temperament</legend>
+  <label><input type="checkbox" value="curious"> Curious</label>
+  <label><input type="checkbox" value="calculating"> Calculating</label>
+  <label><input type="checkbox" value="absent-minded"> Absent-minded</label>
+  <label><input type="checkbox" value="studious"> Studious</label>
+  <label><input type="checkbox" value="obsessive"> Obsessive</label>
+  <label><input type="checkbox" value="distracted"> Distracted</label>
+  <label><input type="checkbox" value="logical"> Logical</label>
+  <label><input type="checkbox" value="inventive"> Inventive</label>
+</fieldset>
+
+<!-- Moral -->
+<fieldset class="trait-group">
+  <legend>🧍 Moral / Ethical</legend>
+  <label><input type="checkbox" value="honorable"> Honorable</label>
+  <label><input type="checkbox" value="compassionate"> Compassionate</label>
+  <label><input type="checkbox" value="ruthless"> Ruthless</label>
+  <label><input type="checkbox" value="loyal"> Loyal</label>
+  <label><input type="checkbox" value="selfish"> Selfish</label>
+  <label><input type="checkbox" value="generous"> Generous</label>
+  <label><input type="checkbox" value="manipulative"> Manipulative</label>
+  <label><input type="checkbox" value="vengeful"> Vengeful</label>
+</fieldset>
+
+<!-- Emotional -->
+<fieldset class="trait-group">
+  <legend>🎭 Emotional / Expressive</legend>
+  <label><input type="checkbox" value="stoic"> Stoic</label>
+  <label><input type="checkbox" value="shy"> Shy</label>
+  <label><input type="checkbox" value="sarcastic"> Sarcastic</label>
+  <label><input type="checkbox" value="flamboyant"> Flamboyant</label>
+  <label><input type="checkbox" value="overconfident"> Overconfident</label>
+  <label><input type="checkbox" value="reserved"> Reserved</label>
+  <label><input type="checkbox" value="dramatic"> Dramatic</label>
+  <label><input type="checkbox" value="impulsive"> Impulsive</label>
+  <label><input type="checkbox" value="paranoid"> Paranoid</label>
+</fieldset>
+
+<!-- Physical -->
+<fieldset class="trait-group">
+  <legend>⚔️ Adventurous / Physical</legend>
+  <label><input type="checkbox" value="brave"> Brave</label>
+  <label><input type="checkbox" value="reckless"> Reckless</label>
+  <label><input type="checkbox" value="cautious"> Cautious</label>
+  <label><input type="checkbox" value="bold"> Bold</label>
+  <label><input type="checkbox" value="energetic"> Energetic</label>
+  <label><input type="checkbox" value="lazy"> Lazy</label>
+  <label><input type="checkbox" value="daring"> Daring</label>
+  <label><input type="checkbox" value="hot-headed"> Hot-headed</label>
+</fieldset>
+
+
+      <label for="npc-notes">Description or Traits</label>
+      <textarea id="npc-notes" name="npc-notes" placeholder="E.g. grumpy old scout with a hidden heart of gold..."></textarea>
+
+    <button type="button" id="generate-npc">Generate Personality</button>
+
+    <div id="npc-output" class="av-response"></div>
+    <!--Save to Journal Button-->
+  <button type="button" id="save-npc-journal" class="hidden">Save to NPC Memories</button>
+    </form>
+  </div>
+
+
+  
+  <!--Memory Editor-->
+  <div class="tab-content hidden" id="tab-pro">
+  <p><strong>💎 Archive of Voices Pro</strong></p>
+  <div class="av-response">
+    <p>Archive of Voices Pro is the premium upgrade for GMs who want deep creative tools, narrative immersion, and streamlined NPC management — all powered by memory, AI, and Foundry-native integration.</p>
+
+    <h3>✨ Planned Pro Features:</h3>
+    <ul>
+      <li>📝 <strong>Memory Editor:</strong> Browse and edit any NPC’s journal memory from inside the assistant UI</li>
+      <li>🎯 <strong>NPC Reveal Control:</strong> Hide NPCs from players until they meet them in-game</li>
+      <li>🔄 <strong>Re-Generate Personality:</strong> Instantly re-roll an NPC’s profile if you want a fresh take</li>
+      <li>📄 <strong>Markdown Preview Toggle:</strong> Switch between raw Markdown and rendered previews</li>
+      <li>📋 <strong>Journal Summary Sidebar:</strong> Show key NPC facts and tags alongside replies</li>
+      <li>🛍️ <strong>Generate Vendors:</strong> Create shopkeepers with themed, populated inventories</li>
+      <li>🧑‍🎭 <strong>Create NPC Actors:</strong> Generate Foundry actors from GPT-generated personalities</li>
+      <li>🎙️ <strong>Voice Style Guides:</strong> Auto-generate tone, cadence, and voice cues for consistent roleplay</li>
+      <li>🗃️ <strong>Session Summaries:</strong> Automatically log and summarize player–NPC interactions</li>
+      <li>🧠 <strong>Conversation Memory:</strong> Maintain context in ongoing conversations with GPT</li>
+      <li>📦 <strong>Import/Export NPCs:</strong> Share NPC personalities between worlds and campaigns</li>
+      <li>🎨 <strong>UI Templates:</strong> Use visual skins for different moods (arcane, sci-fi, etc)</li>
+    </ul>
+
+    <p>These features are in active development and available to supporters of the project.</p>
+    <p><em>Patreon link coming soon...</em></p>
+  </div>
+</div>
+
+
+
+  {{else}}
+
+  <!-- NON-GM: Chat Only -->
+  <div class="tab-header">
+    <button data-tab="chat" class="tab active">💬 Chat</button>
+  </div>
+
+  <div class="tab-content" id="tab-chat">
+    <form class="av-form">
+      <label for="prompt">Ask The Archive of Voices</label>
+      <textarea id="prompt" name="prompt" placeholder="Ask anything..."></textarea>
+
+      <label for="npc-select">Select NPC</label>
+      <select id="npc-select">
+        <option value="">None</option>
+      </select>
+
+      <button type="button" id="av-send">Send</button>
+      <div id="av-output" class="av-response"></div>
+    </form>
+  </div>
+
+  {{/if}}
+</div>
