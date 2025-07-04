@@ -21,7 +21,7 @@ Archive of Voices brings your non-player characters to life using memory, person
 
 1. Download the module or use this manifest URL:
    ```
-   https://raw.githubusercontent.com/YOUR_USERNAME/archive-of-voices/main/module.json
+   https://raw.githubusercontent.com/DamonSD/archive-of-voices/main/module.json
    ```
 2. Install via Foundry VTT’s Module Manager.
 3. Enable it in your world.
@@ -76,14 +76,14 @@ Archive of Voices Pro is a premium upgrade offering deeper tools for worldbuilde
 ## 📘 Journal Setup Tips
 
 - Place all memory journals in a folder named `NPC Memories`
-- Journal name must exactly match the NPC name in dropdown
+- Journal name must exactly match the NPC name in the dropdown
 - A "Memory Log" page is created and updated automatically
 
 ---
 
 ## 🛡️ AI Use Disclaimer
 
-This tool is powered by GPT but fully controlled by the GM.  
+This tool is powered by GPT but is fully controlled by the GM.  
 It never invents content beyond what’s in your journals.  
 There is no internet access, no hallucinations — just consistent in-character responses, based on what *you* define.
 
