@@ -1,101 +1,85 @@
-a# 🎙️ Archive of Voices
+# 🗣️ Archive of Voices
 
-**An immersive GPT-powered NPC assistant for Foundry VTT.**
-
-Archive of Voices brings your non-player characters to life using memory, personality, and AI-enhanced dialogue — all controlled by you, the GM. This module is designed to help game masters create, manage, and roleplay NPCs with persistent memories and unique voices, without ever losing control of the narrative.
-
----
-
-## 🧠 What It Does
-
-- 💬 Chat with NPCs in character using GPT
-- 🧍 Instantly generate unique NPC personalities
-- 📓 Store NPC memory in Foundry journal entries
-- ✍️ Auto-log player–NPC interactions to a Memory Log
-- 🧾 Render Markdown personalities directly in Foundry
-- ⚙️ Choose GPT model, whisper replies to GM, toggle UI access
-
----
-
-## 📦 Installation
-
-1. Download the module or use this manifest URL:
-   ```
-   https://raw.githubusercontent.com/DamonSD/archive-of-voices/main/module.json
-   ```
-2. Install via Foundry VTT’s Module Manager.
-3. Enable it in your world.
-4. Paste your **OpenAI API Key** into the settings.
+A Foundry VTT module for managing dynamic, memory-aware NPC conversations using OpenAI — now fully integrated with SocketLib for multiplayer-safe journal updates.
 
 ---
 
 ## ✨ Features
 
-### 💬 Chat Tab
-- Ask the assistant anything
-- Choose an NPC to respond with memory context
-- Automatically logs Q&A to that NPC’s journal
-
-### 🧍 New NPC Tab
-- Input race, class, gender, traits, and notes
-- GPT generates a personality profile in Markdown
-- Save it directly to a new Foundry journal entry
-
-### 📘 Memory Integration
-- NPC journals in the `NPC Memories` folder are treated as memory sources
-- GPT responses draw from all pages of matching NPC journals
-
-### ⚙️ Settings Panel
-- OpenAI API key (securely stored)
-- Choose GPT model (3.5, 4, 4o)
-- Whisper replies to GM only
-- Toggle GM-only interface access
+- 🤖 Ask questions of NPCs and get in-character answers.
+- 📘 Automatically creates and maintains "Memory Logs" for each NPC.
+- 🧠 NPC memory is stored in Journal Entries inside the **NPC Memories** folder.
+- 📤 Players' questions and NPC responses are logged via SocketLib — even if the player isn't the GM.
+- 🧪 Slash command `/av-lite` to test GM socket response.
+- 🧰 GUI interface for chatting, generating NPCs, and saving logs.
 
 ---
 
-## 🔒 Pro Features Coming Soon
+## 🧩 Requirements
 
-Archive of Voices Pro is a premium upgrade offering deeper tools for worldbuilders:
-
-- 📝 Memory Editor tab (view/edit journal memory inside the UI)
-- 🎯 NPC visibility control (reveal NPCs only when players meet them)
-- 🔁 Re-roll NPC personalities on demand
-- 📄 Markdown preview before saving
-- 📋 Journal summary sidebar with tags
-- 🛍️ Vendor generator with full inventories
-- 🧑‍🎭 Create NPC actors directly from GPT output
-- 🎙️ Voice style guides for tone and sample phrases
-- 🗃️ Session summaries and log indexing
-- 📦 NPC import/export between worlds
-- 🎨 UI skin templates (dark arcane, steampunk, etc.)
-
-> **Patreon and early access builds coming soon.**
+- [SocketLib](https://foundryvtt.com/packages/socketlib) (must be installed and enabled)
+- Foundry VTT 10+
 
 ---
 
-## 📘 Journal Setup Tips
+## 📂 Installation
 
-- Place all memory journals in a folder named `NPC Memories`
-- Journal name must exactly match the NPC name in the dropdown
-- A "Memory Log" page is created and updated automatically
+Paste the manifest URL into Foundry's module installer:
+
+```
+https://raw.githubusercontent.com/DamonSD/archive-of-voices/main/module.json
+```
+
+Or install manually:
+
+1. Download the latest release `.zip` from the [Releases](https://github.com/DamonSD/archive-of-voices/releases)
+2. Extract into your `FoundryVTT/Data/modules` folder
+3. Enable in your World > Manage Modules
 
 ---
 
-## 🛡️ AI Use Disclaimer
+## 🚀 Usage
 
-This tool is powered by GPT but is fully controlled by the GM.  
-It never invents content beyond what’s in your journals.  
-There is no internet access, no hallucinations — just consistent in-character responses, based on what *you* define.
+### 🔹 Getting Started
+
+1. Enable the module and SocketLib in your world.
+2. Configure your **OpenAI API key** in Game Settings.
+3. Press the 🤖 robot button in chat controls to open the GUI.
+4. Select an NPC and ask a question, or generate a new NPC.
+
+### 🔹 Memory Logs
+
+- Create a journal named exactly like your NPC (e.g. `Jaaris`) inside a folder called `NPC Memories`
+- All conversations are logged under a page titled `Memory Log`
 
 ---
 
-## 🤖 About the Creator
+## 🔧 Developer Notes
 
-Created by **Damond Shadowdrake** of Shadowdrake Creations.  
-A GM with nearly 30 years of experience — now building tools to help others tell better stories.
+- Uses `window.socketlib.registerModule(...)` for official compatibility
+- Socket functions registered under `archive-of-voices`
+- `executeAsGM(...)` used for player-to-GM journal updates
+
+---
+
+## 🧪 Debugging
+
+- Use `/av-lite` in chat to verify GM socket registration.
+- Watch the browser console for logs like:
+  ```
+  📥 Received test socket from PlayerName
+  ✅ GM updated 'Memory Log' in Journal: Jaaris
+  ```
 
 ---
 
 ## 📜 License
 
-MIT License — see LICENSE file for details.
+MIT
+
+---
+
+## 🙏 Credits
+
+Created by Damond Shadowdrake and Shadowdrake Creations  
+Inspired collaborative worldbuilding tools.
