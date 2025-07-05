@@ -1,4 +1,4 @@
-class ArchiveOfVoicesUI extends Application {
+class ArchiveOfVoicesUI extends foundry.applications.api.ApplicationV2 {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       id: "av-ui",

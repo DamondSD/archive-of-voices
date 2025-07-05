@@ -87,21 +87,31 @@ console.log("🟢 ArchiveOfVoices GM socket listener active.");
 
 
   // 🧠 Auto-create "Helper" memory journal if missing
-  const existing = game.journal.contents.find(j => j.name === "Helper" && j.folder?.name === "NPC Memories");
-  if (!existing) {
-    let folder = game.folders.find(f => f.name === "NPC Memories" && f.type === "JournalEntry");
-    if (!folder) {
-      folder = await Folder.create({ name: "NPC Memories", type: "JournalEntry", color: "#9e9e9e" });
-    }
+  const existing = [...game.journal.values()].find(j =>
+  j.name === "Helper" && j.folder?.name === "NPC Memories"
+);
 
-    await JournalEntry.create({
-      name: "Helper",
-      folder: folder.id,
-      pages: [{
-        name: "Helper Memory Guide",
-        type: "text",
-        text: {
-          content: `
+if (!existing) {
+  let folder = game.folders.find(f =>
+    f.name === "NPC Memories" && f.type === "JournalEntry"
+  );
+
+  if (!folder) {
+    folder = await Folder.create({
+      name: "NPC Memories",
+      type: "JournalEntry",
+      color: "#9e9e9e"
+    });
+  }
+
+  await JournalEntry.create({
+    name: "Helper",
+    folder: folder.id,
+    pages: [{
+      name: "Helper Memory Guide",
+      type: "text",
+      text: {
+        content: `
 <h2>🤖 Helper — Your Memory Guide</h2>
 <p><strong>Who I Am:</strong> I’m your friendly tutorial construct. Ask me how to use NPC memory!</p>
 
@@ -120,14 +130,15 @@ console.log("🟢 ArchiveOfVoices GM socket listener active.");
 </ul>
 
 <p><em>Try it now by asking me something!</em></p>
-          `,
-          format: 1
-        }
-      }]
-    });
+        `,
+        format: 1
+      }
+    }]
+  });
 
-    ui.notifications.info("📘 'Helper' NPC created in NPC Memories folder.");
-  }
+  ui.notifications.info("📘 'Helper' NPC created in NPC Memories folder.");
+}
+
 
   // 💬 Slash command listener
   Hooks.on("chatMessage", (chatLog, message, chatData) => {
@@ -159,16 +170,18 @@ async function handleGPTCommand(prompt, npcName = null, model = "gpt-4o") {
 
   // 🧠 Load NPC memory from folder
   let memory = "";
-  if (npcName) {
-    const journal = game.journal?.contents.find(j =>
-      j.name === npcName && j.folder?.name === "NPC Memories"
-    );
-    if (journal) {
-      memory = journal.pages.contents.map(p => p.text?.content || "").join("\n");
-    } else {
-      console.warn(`⚠️ No memory entry found for ${npcName}`);
-    }
+if (npcName) {
+  const journal = [...game.journal.values()].find(j =>
+    j.name === npcName && j.folder?.name === "NPC Memories"
+  );
+
+  if (journal) {
+    memory = [...journal.pages.values()].map(p => p.text?.content || "").join("\n");
+  } else {
+    console.warn(`⚠️ No memory entry found for ${npcName}`);
   }
+}
+
 
   const systemPrompt = npcName
     ? `You are roleplaying as ${npcName}, an NPC in a fantasy world. Your known memory is as follows:\n${memory}\nRespond in character. Do not invent facts or knowledge not found in memory. If you do not know the answer based on the memory, say so in character.`
@@ -195,35 +208,35 @@ async function handleGPTCommand(prompt, npcName = null, model = "gpt-4o") {
 
       // ✏️ Append Q&A to NPC journal memory
   if (npcName) {
-    const journal = game.journal?.contents.find(j =>
-      j.name === npcName && j.folder?.name === "NPC Memories"
-    );
+  const journal = [...game.journal.values()].find(j =>
+    j.name === npcName && j.folder?.name === "NPC Memories"
+  );
 
-    if (journal) {
-      let logPage = journal.pages.getName("Memory Log");
+  if (journal) {
+    let logPage = journal.pages.getName("Memory Log");
 
-      // If no log page, create one
-      if (!logPage) {
-        logPage = await journal.createPages( [{
-          name: "Memory Log",
-          type: "text",
-          text: { content: "", format: 1 }
-        }]).then(pages => pages[0]);
-      }
+    // If no log page, create one
+    if (!logPage) {
+      logPage = await journal.createPages([{
+        name: "Memory Log",
+        type: "text",
+        text: { content: "", format: 1 }
+      }]).then(pages => pages[0]);
+    }
 
-      const previous = logPage.text.content || "";
-      const timestamp = new Date().toLocaleString();
-      const entry = `<p><strong>${timestamp}</strong><br><strong>Q:</strong> ${prompt}<br><strong>A:</strong> ${reply}</p>\n<hr>\n`;
+    const previous = logPage.text.content || "";
+    const timestamp = new Date().toLocaleString();
+    const entry = `<p><strong>${timestamp}</strong><br><strong>Q:</strong> ${prompt}<br><strong>A:</strong> ${reply}</p>\n<hr>\n`;
 
-      if (game.user.isGM) {
-        await logPage.update({ "text.content": previous + entry });
-        } else {
-          console.log("📤 Sending socket request to GM for memory log update.");
-          game.modules.get("socketlib")?.api?.emitAsGM("archive-of-voices", "updateJournalPage", journal.id, "Memory Log", previous + entry);
-
-      }
+    if (game.user.isGM) {
+      await logPage.update({ "text.content": previous + entry });
+    } else {
+      console.log("📤 Sending socket request to GM for memory log update.");
+      archiveSocket?.executeAsGM("updateJournalPage", journal.id, "Memory Log", previous + entry);
     }
   }
+}
+
 
     return reply || "(No response)";
   } catch (err) {
@@ -321,7 +334,7 @@ Hooks.on("chatMessage", (log, msg, data) => {
       console.warn("⚠️ ArchiveOfVoices socket not initialized yet.");
       return false;
     }
-    archiveSocket.emitAsGM("testEcho", game.user.name);
+    archiveSocket.executeAsGM("testEcho", game.user.name);
     return false;
   }
 });
