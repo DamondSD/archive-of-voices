@@ -5,11 +5,12 @@ Hooks.once("init", () => {
 
   // Hide the API key like a password
   Hooks.on("renderSettingsConfig", (app, html, data) => {
-  const input = html.find('input[name="archive-of-voices.openaiApiKey"]');
-  if (input.length) {
-    input.attr("type", "password");
+  const input = html.querySelector('input[name="archive-of-voices.openaiApiKey"]');
+  if (input) {
+    input.setAttribute("type", "password");
   }
 });
+
 
 
   // Register the OpenAI API Key setting (world scope, shared across all users)

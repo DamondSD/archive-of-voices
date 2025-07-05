@@ -219,27 +219,25 @@ Avoid using HTML tags or formatting.`;
 
 Hooks.once("ready", () => {
   game.avUI = new ArchiveOfVoicesUI();
+});
 
-  const waitForChatControls = () => {
-    const chatControls = document.querySelector("#chat-controls");
-    if (!chatControls) return setTimeout(waitForChatControls, 100);
+Hooks.on("renderChatLog", () => {
+  const chatControls = document.querySelector("#chat-controls");
+  if (!chatControls) return;
 
-    if (chatControls.querySelector(".av-button")) return;
+  if (chatControls.querySelector(".av-button")) return;
 
-    const gmOnly = game.settings.get("archive-of-voices", "gmOnlyButton");
-    if (gmOnly && !game.user.isGM) return;
+  const gmOnly = game.settings.get("archive-of-voices", "gmOnlyButton");
+  if (gmOnly && !game.user.isGM) return;
 
-    const icon = document.createElement("a");
-    icon.classList.add("chat-control-icon", "av-button");
-    icon.innerHTML = `<i class="fas fa-robot"></i>`;
-    icon.title = "ArchiveOfVoices Assistant";
+  const icon = document.createElement("a");
+  icon.classList.add("chat-control-icon", "av-button");
+  icon.innerHTML = `<i class="fas fa-robot"></i>`;
+  icon.title = "ArchiveOfVoices Assistant";
 
-    icon.addEventListener("click", () => {
-      game.avUI.render(true);
-    });
+  icon.addEventListener("click", () => {
+    game.avUI.render(true);
+  });
 
-    chatControls.appendChild(icon);
-  };
-
-  waitForChatControls();
+  chatControls.appendChild(icon);
 });
