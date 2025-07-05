@@ -3,7 +3,7 @@ class ArchiveOfVoicesUI extends Application {
     return foundry.utils.mergeObject(super.defaultOptions, {
       id: "av-ui",
       title: "ArchiveOfVoices Assistant",
-      template: "modules/archive-of-voices/templates/av-ui.html",
+      template: "modules/archive-of-voices/templates/av-ui-v13.html",
       width: 700,
       height: 500,
       resizable: true
