@@ -26,9 +26,15 @@ A Foundry VTT module for managing dynamic, memory-aware NPC conversations using 
 
 Paste the manifest URL into Foundry's module installer:
 
-```
+Foundry v11 - v12 support 
 https://raw.githubusercontent.com/DamondSD/archive-of-voices/main/module.json
+
+Foundry V13 support
+https://raw.githubusercontent.com/DamondSD/archive-of-voices/v13-support/module.json
 ```
+### 💡 Bonus Tip
+
+_Using the wrong version may result in journal updates or template errors. Always match your Foundry version._
 
 Or install manually:
 
