@@ -1,35 +1,32 @@
 {
-  "id": "archive-of-voices",
-  "name": "archive-of-voices",
-  "title": "Archive of Voices",
-  "description": "A module for bringing your NPCs to life within Foundry VTT.",
-  "type": "module",
-  "authors": [
-    {
-    "name": "Shadowdrake Creations"
-    }
-  ],
-  "socket": true,
-  "version": "1.2.0",
-  "compatibility": {
-    "minimum": "11",
-    "verified": "12",
-    "maximum": "12"
-  },
+  "id": "archive-of-voices-v13",
+  "title": "Archive of Voices (V13)",
+  "version": "1.3.0",
+  "description": "A module for interactive, memory-aware NPC dialogue using OpenAI.",
   "scripts": [
-    "libs/marked.min.js",
-    "scripts/archive-of-voices-ui.js",
-    "scripts/archive-of-voices.js"
+    "archive-of-voices-v13.js",
+    "archive-of-voices-ui-v13.js",
+    "marked.min.js"
   ],
-  "dependencies": [
-  {
-    "name": "socketlib",
-    "type": "module"
-  }
-],
-  "changelog": "Improved SocketLib integration and fixed NPC memory logging.",
-  "styles": ["styles/archive-of-voices.css"],
-  "url": "https://github.com/DamondSD/archive-of-voices",
+  "styles": [
+    "archive-of-voices-v13.css"
+  ],
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.1",
+    "maximum": "13"
+  },
   "manifest": "https://raw.githubusercontent.com/DamondSD/archive-of-voices/main/module.json",
-  "download": "https://github.com/DamondSD/archive-of-voices/releases/download/v1.2.0/archive-of-voices.zip"
+  "download": "https://github.com/DamondSD/archive-of-voices/releases/latest/download/module.zip",
+  "url": "https://github.com/DamondSD/archive-of-voices",
+  "author": "Shadowdrake Creations",
+  "esmodules": [],
+  "languages": [],
+  "packs": [],
+  "dependencies": [
+    {
+      "name": "socketlib",
+      "type": "module"
+    }
+  ]
 }
