@@ -17,7 +17,7 @@
     "maximum": "13"
   },
   "manifest": "https://raw.githubusercontent.com/DamondSD/archive-of-voices/v13-support/module.json",
-  "download": "https://github.com/DamondSD/archive-of-voices/releases/download/v1.2.0v13/module.zip",
+  "download": "https://github.com/DamondSD/archive-of-voices/releases/download/v1.2.0-v13/module.zip",
   "url": "https://github.com/DamondSD/archive-of-voices",
   "author": "Shadowdrake Creations",
   "esmodules": [],
