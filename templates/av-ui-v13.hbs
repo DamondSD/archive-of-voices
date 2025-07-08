@@ -1,0 +1,184 @@
+<div class="av-tabs">
+  <div class="tab-header">
+    <button class="tab active" data-tab="ask">Ask</button>
+    <button class="tab" data-tab="npc">New NPC</button>
+    <button class="tab" data-tab="pro">Pro</button>
+  </div>
+
+  <!-- 🧠 Ask Tab -->
+  <div class="tab-content" id="tab-ask">
+    <label for="npc-select">Speak as:</label>
+    <select id="npc-select">
+      <option value="">— Archive of Voices —</option>
+      {{#each npcList}}
+        <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+
+    <textarea id="prompt" rows="6" placeholder="Ask something..." style="margin-top: 10px;"></textarea>
+    <button id="av-send" style="margin-top: 10px;">Send</button>
+    <div id="av-output" class="av-response"></div>
+  </div>
+
+  <!-- 🧬 New NPC Tab -->
+  <div class="tab-content hidden" id="tab-npc">
+    <label for="npc-name">Name:</label>
+    <input type="text" id="npc-name" placeholder="e.g., Kaelin Voss">
+
+    <label for="npc-gender">Gender:</label>
+    <select id="npc-gender">
+      <option value="">— Choose Gender —</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label for="npc-race">Race/Species:</label>
+    <select id="npc-race">
+      <option value="">— Choose Race —</option>
+      <option>Human</option>
+      <option>Elf</option>
+      <option>Dwarf</option>
+      <option>Halfling</option>
+      <option>Half-Orc</option>
+      <option>Half-Elf</option>
+      <option>Gnome</option>
+      <option>Tiefling</option>
+      <option>Dragonborn</option>
+      <option>Tabaxi</option>
+      <option>Aasimar</option>
+      <option>Firbolg</option>
+      <option>Goliath</option>
+      <option>Triton</option>
+      <option>Kenku</option>
+      <option>Changeling</option>
+      <option>Warforged</option>
+      <option>Genasi</option>
+      <option>Goblin</option>
+    </select>
+
+    <label for="npc-class">Class/Role:</label>
+    <select id="npc-class">
+      <option value="">— Choose Class —</option>
+      <option>Barbarian</option>
+      <option>Bard</option>
+      <option>Cleric</option>
+      <option>Druid</option>
+      <option>Fighter</option>
+      <option>Monk</option>
+      <option>Paladin</option>
+      <option>Ranger</option>
+      <option>Rogue</option>
+      <option>Sorcerer</option>
+      <option>Warlock</option>
+      <option>Wizard</option>
+      <option>Artificer</option>
+      <option>Blood Hunter</option>
+    </select>
+
+    <label>Personality Traits</label>
+    <small>Select as many as you need</small>
+
+    <fieldset class="trait-group">
+      <legend>🧠 Intellectual / Temperament</legend>
+      <div class="trait-checkboxes">
+        <label><input type="checkbox" name="trait" value="Curious"> Curious</label>
+        <label><input type="checkbox" name="trait" value="Calculating"> Calculating</label>
+        <label><input type="checkbox" name="trait" value="Absent-minded"> Absent-minded</label>
+        <label><input type="checkbox" name="trait" value="Studious"> Studious</label>
+        <label><input type="checkbox" name="trait" value="Obsessive"> Obsessive</label>
+        <label><input type="checkbox" name="trait" value="Distracted"> Distracted</label>
+        <label><input type="checkbox" name="trait" value="Logical"> Logical</label>
+        <label><input type="checkbox" name="trait" value="Inventive"> Inventive</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="trait-group">
+      <legend>⚖️ Moral / Ethical</legend>
+      <div class="trait-checkboxes">
+        <label><input type="checkbox" name="trait" value="Honorable"> Honorable</label>
+        <label><input type="checkbox" name="trait" value="Compassionate"> Compassionate</label>
+        <label><input type="checkbox" name="trait" value="Ruthless"> Ruthless</label>
+        <label><input type="checkbox" name="trait" value="Loyal"> Loyal</label>
+        <label><input type="checkbox" name="trait" value="Selfish"> Selfish</label>
+        <label><input type="checkbox" name="trait" value="Generous"> Generous</label>
+        <label><input type="checkbox" name="trait" value="Manipulative"> Manipulative</label>
+        <label><input type="checkbox" name="trait" value="Vengeful"> Vengeful</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="trait-group">
+      <legend>🎭 Emotional / Expressive</legend>
+      <div class="trait-checkboxes">
+        <label><input type="checkbox" name="trait" value="Stoic"> Stoic</label>
+        <label><input type="checkbox" name="trait" value="Shy"> Shy</label>
+        <label><input type="checkbox" name="trait" value="Sarcastic"> Sarcastic</label>
+        <label><input type="checkbox" name="trait" value="Flamboyant"> Flamboyant</label>
+        <label><input type="checkbox" name="trait" value="Overconfident"> Overconfident</label>
+        <label><input type="checkbox" name="trait" value="Reserved"> Reserved</label>
+        <label><input type="checkbox" name="trait" value="Dramatic"> Dramatic</label>
+        <label><input type="checkbox" name="trait" value="Impulsive"> Impulsive</label>
+        <label><input type="checkbox" name="trait" value="Paranoid"> Paranoid</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="trait-group">
+      <legend>⚔️ Adventurous / Physical</legend>
+      <div class="trait-checkboxes">
+        <label><input type="checkbox" name="trait" value="Brave"> Brave</label>
+        <label><input type="checkbox" name="trait" value="Reckless"> Reckless</label>
+        <label><input type="checkbox" name="trait" value="Cautious"> Cautious</label>
+        <label><input type="checkbox" name="trait" value="Bold"> Bold</label>
+        <label><input type="checkbox" name="trait" value="Energetic"> Energetic</label>
+        <label><input type="checkbox" name="trait" value="Lazy"> Lazy</label>
+        <label><input type="checkbox" name="trait" value="Daring"> Daring</label>
+        <label><input type="checkbox" name="trait" value="Hot-headed"> Hot-headed</label>
+      </div>
+    </fieldset>
+
+    <label for="npc-notes">Description or Traits</label>
+    <textarea id="npc-notes" rows="3" placeholder="E.g. grumpy old scout with a hidden heart of gold..."></textarea>
+
+    <button id="npc-generate">Generate NPC</button>
+
+    <div id="npc-preview" class="av-response" style="margin-top: 12px;"></div>
+    <button id="npc-save" class="hidden">Save Profile to Journal</button>
+  </div>
+
+  <!-- Pro Features Tab -->
+<div class="tab-content hidden" id="tab-pro">
+  <p><strong>💎 Archive of Voices Pro</strong></p>
+  <div class="av-response">
+    <p>
+      Archive of Voices Pro is the premium upgrade for GMs who want deep creative tools,
+      narrative immersion, and streamlined NPC management — all powered by memory, AI,
+      and Foundry-native integration.
+    </p>
+
+    <h3>✨ Planned Pro Features:</h3>
+    <ul>
+      <li>📝 <strong>Memory Editor:</strong> Browse and edit any NPC’s journal memory from inside the assistant UI</li>
+      <li>🎯 <strong>NPC Reveal Control:</strong> Hide NPCs from players until they meet them in-game</li>
+      <li>🔄 <strong>Re-Generate Personality:</strong> Instantly re-roll an NPC’s profile if you want a fresh take</li>
+      <li>📄 <strong>Markdown Preview Toggle:</strong> Switch between raw Markdown and rendered previews</li>
+      <li>📋 <strong>Journal Summary Sidebar:</strong> Show key NPC facts and tags alongside replies</li>
+      <li>🛍️ <strong>Generate Vendors:</strong> Create shopkeepers with themed, populated inventories</li>
+      <li>🧑‍🎭 <strong>Create NPC Actors:</strong> Generate Foundry actors from GPT-generated personalities</li>
+      <li>🎙️ <strong>Voice Style Guides:</strong> Auto-generate tone, cadence, and voice cues for consistent roleplay</li>
+      <li>🗃️ <strong>Session Summaries:</strong> Automatically log and summarize player–NPC interactions</li>
+      <li>🧠 <strong>Conversation Memory:</strong> Maintain context in ongoing conversations with GPT</li>
+      <li>📦 <strong>Import/Export NPCs:</strong> Share NPC personalities between worlds and campaigns</li>
+      <li>🎨 <strong>UI Templates:</strong> Use visual skins for different moods (arcane, sci-fi, etc)</li>
+    </ul>
+
+    <p>These features are in active development and available to supporters of the project.</p>
+    <p><em>Patreon link coming soon...</em></p>
+
+    <button class="av-pro-disabled" disabled>Upgrade to Pro (coming soon)</button>
+    <p style="text-align: right; font-size: 11px; color: #888;">
+      Archive of Voices Free v1.0 | Pro Teaser Active
+    </p>
+  </div>
+</div>
+
+</div>
