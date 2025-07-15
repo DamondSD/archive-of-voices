@@ -83,7 +83,7 @@ Or install manually:
 
 ## 📬 Contact & Support
 
-- 📧 Email: damond.shadowdrake@gmail.com
+- 📧 Email: shadowdrake24@gmail.com
 - 💬 Discord: [Join the community](https://discord.gg/JbTneapH)
 - 🛠 GitHub: [Open an issue](https://github.com/DamondSD/archive-of-voices/issues)
 
