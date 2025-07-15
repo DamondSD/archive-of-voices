@@ -24,17 +24,19 @@ A Foundry VTT module for managing dynamic, memory-aware NPC conversations using 
 
 ## 📂 Installation
 
-Paste the manifest URL into Foundry's module installer:
+### 📥 Install via Manifest
 
-Foundry v11 - v12 support 
+Foundry v11–v12:
+```
 https://raw.githubusercontent.com/DamondSD/archive-of-voices/main/module.json
+```
 
-Foundry V13 support
+Foundry v13:
+```
 https://raw.githubusercontent.com/DamondSD/archive-of-voices/v13-support/module.json
 ```
-### 💡 Bonus Tip
 
-_Using the wrong version may result in journal updates or template errors. Always match your Foundry version._
+💡 _Using the wrong version may result in journal updates or template errors. Always match your Foundry version._
 
 Or install manually:
 
@@ -76,6 +78,16 @@ Or install manually:
   📥 Received test socket from PlayerName
   ✅ GM updated 'Memory Log' in Journal: Jaaris
   ```
+
+---
+
+## 📬 Contact & Support
+
+- 📧 Email: damond.shadowdrake@gmail.com
+- 💬 Discord: [Join the community](https://discord.gg/JbTneapH)
+- 🛠 GitHub: [Open an issue](https://github.com/DamondSD/archive-of-voices/issues)
+
+_This is the free version of Archive of Voices. The Pro version adds voice capture, memory editors, and more._
 
 ---
 
