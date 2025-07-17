@@ -1,0 +1,40 @@
+{
+  "id": "archive-of-voices",
+  "title": "Archive of Voices",
+  "description": "A module for bringing your NPCs to life within Foundry VTT.",
+  "authors": [
+    {
+      "name": "Shadowdrake Creations",
+      "flags": {}
+    }
+  ],
+  "socket": true,
+  "version": "2.0.0",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "12",
+    "maximum": "12"
+  },
+  "type": "module",
+  "scripts": [
+    "libs/marked.min.js"
+  ],
+  "esmodules": [
+    "scripts/archive-of-voices.js"
+  ],
+  "styles": [
+    "styles/avp.css"
+  ],
+  "changelog": "Improved SocketLib integration and fixed NPC memory logging.",
+  "url": "https://github.com/DamondSD/archive-of-voices",
+  "manifest": "https://raw.githubusercontent.com/DamondSD/archive-of-voices/main/module.json",
+  "download": "https://github.com/DamondSD/archive-of-voices/releases/download/v2.0.0/archive-of-voices.zip",
+  "relationships": {
+    "requires": [
+      {
+        "id": "socketlib",
+        "type": "module"
+      }
+    ]
+  }
+}
