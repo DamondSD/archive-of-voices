@@ -1,0 +1,29 @@
+{
+  "id": "archive-of-voices",
+  "title": "Archive of Voices",
+  "description": "A module for bringing your NPCs to life within Foundry VTT.",
+  "version": "3.0.0",
+  "type": "module",
+  "authors": [
+    {
+    "company": "Shadowdrake Creations",
+    "name": "Damond Shadowdrake",
+    "email": "Shadowdrake24@gmail.com",
+    "discord": "https://discord.gg/JbTneapH"
+    }
+  ],
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.345"
+  },
+  "scripts": ["libs/marked.min.js"],
+  "esmodules": ["scripts/av-setup.js"],
+  "styles": ["styles/archive-of-voices-v13.css"],
+  "socket": true,
+  "changelog": "Added contact information and Discord",
+  "bugs": "https://github.com/DamondSD/archive-of-voices/issues",
+  "readme": "https://github.com/DamondSD/archive-of-voices/blob/main/README.md",
+  "url": "https://github.com/DamondSD/archive-of-voices-v13",
+  "manifest": "https://raw.githubusercontent.com/DamondSD/archive-of-voices/v13-support/module.json",
+  "download": "https://github.com/DamondSD/archive-of-voices-v13/releases/download/v3.0.0/archive-of-voices-v13.zip"
+}
