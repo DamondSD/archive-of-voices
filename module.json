@@ -9,7 +9,7 @@
     }
   ],
   "socket": true,
-  "version": "2.0.0",
+  "version": "2.5.0",
   "compatibility": {
     "minimum": "11",
     "verified": "12",
@@ -28,7 +28,7 @@
   "changelog": "Improved SocketLib integration and fixed NPC memory logging.",
   "url": "https://github.com/DamondSD/archive-of-voices",
   "manifest": "https://raw.githubusercontent.com/DamondSD/archive-of-voices/main/module.json",
-  "download": "https://github.com/DamondSD/archive-of-voices/releases/download/v2.0.0/archive-of-voices.zip",
+  "download": "https://github.com/DamondSD/archive-of-voices/releases/download/v2.5.0/archive-of-voices.zip",
   "relationships": {
     "requires": [
       {
