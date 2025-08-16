@@ -2,39 +2,25 @@
   "id": "archive-of-voices",
   "title": "Archive of Voices",
   "description": "A module for bringing your NPCs to life within Foundry VTT.",
-  "authors": [
-    {
-      "name": "Shadowdrake Creations",
-      "flags": {}
-    }
-  ],
-  "socket": true,
   "version": "3.5.0",
+  "type": "module",
+  "authors": [{
+    "company": "Shadowdrake Creations",
+    "name": "Damond Shadowdrake",
+    "email": "Shadowdrake24@gmail.com",
+    "discord": "https://discord.gg/JbTneapH"
+  }],
   "compatibility": {
     "minimum": "11",
-    "verified": "13.345",
-    
+    "verified": "13.345"
   },
-  "type": "module",
-  "scripts": [
-    "libs/marked.min.js"
-  ],
-  "esmodules": [
-    "scripts/archive-of-voices.js"
-  ],
-  "styles": [
-    "styles/avp.css"
-  ],
-  "changelog": "Improved SocketLib integration and fixed NPC memory logging.",
+  "scripts": ["libs/marked.min.js"],
+  "esmodules": ["scripts/avp-main.js"],
+  "styles": ["styles/avp.css", "styles/avp-splash.css"],
+  "readme": "https://github.com/DamondSD/archive-of-voices/blob/main/README.md",
+  "changelog": "https://github.com/DamondSD/archive-of-voices/releases/tag/v3.5.0",
+  "bugs": "https://github.com/DamondSD/archive-of-voices/issues",
   "url": "https://github.com/DamondSD/archive-of-voices",
   "manifest": "https://raw.githubusercontent.com/DamondSD/archive-of-voices/main/module.json",
-  "download": "https://github.com/DamondSD/archive-of-voices/releases/download/v3.5.0/archive-of-voices.zip",
-  "relationships": {
-    "requires": [
-      {
-        "id": "socketlib",
-        "type": "module"
-      }
-    ]
-  }
+  "download": "https://github.com/DamondSD/archive-of-voices/releases/download/v3.5.0/archive-of-voices-v3.5.0.zip"
 }
